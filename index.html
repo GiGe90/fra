@@ -4,69 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regalo di Natale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
     <style>
-        /* Generale */
+        /* Corpo generale */
         body {
             font-family: "Poppins", sans-serif;
-            background: linear-gradient(135deg, #8e0000, #d50000);
+            background: linear-gradient(135deg, #0d0d0d, #4a0000);
             color: #fff;
-            text-align: center;
-            padding: 50px;
             margin: 0;
-            min-height: 100vh;
+            padding: 0;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            animation: fadeIn 2s ease-in-out;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        /* Contenitore principale */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 50px 30px;
+            border-radius: 15px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+            animation: scaleIn 1s ease-in-out;
         }
 
         h1 {
             font-size: 3em;
+            margin: 0 0 20px;
             color: #ffd700;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-            margin-bottom: 20px;
-            animation: dropIn 1.5s ease-in-out;
+            text-shadow: 0 0 10px rgba(255, 223, 0, 0.8), 0 0 20px rgba(255, 223, 0, 0.6);
         }
 
         p {
             font-size: 1.2em;
-            margin-bottom: 20px;
-            color: #fce4ec;
+            color: #f5f5f5;
+            margin-bottom: 30px;
         }
 
-        /* Input e pulsante */
+        /* Input */
+        .input-group {
+            margin-bottom: 20px;
+        }
+
         input[type="password"] {
             padding: 15px;
-            border: 2px solid #ffd700;
+            border: none;
             border-radius: 30px;
-            margin-right: 10px;
-            font-size: 1.2em;
-            width: 250px;
             outline: none;
-            transition: all 0.3s ease;
+            width: 250px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.9);
+            color: #4a0000;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         input[type="password"]:focus {
-            border-color: #fffacd;
-            box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
 
+        /* Pulsante */
         button {
-            padding: 15px 30px;
+            background: linear-gradient(45deg, #ffd700, #f39c12);
             border: none;
-            border-radius: 30px;
-            background: #006400;
-            color: #fff;
+            color: #4a0000;
             font-size: 1.2em;
-            cursor: pointer;
             font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            padding: 15px 40px;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         button:hover {
-            background: #32cd32;
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.6);
         }
 
         /* Sezione download */
@@ -80,51 +97,57 @@
             display: inline-block;
             padding: 15px 30px;
             border-radius: 30px;
-            background-color: #ffd700;
-            color: #000;
             text-decoration: none;
+            color: #4a0000;
             font-weight: bold;
             font-size: 1.2em;
-            margin-top: 20px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            background: #ffd700;
+            box-shadow: 0 5px 10px rgba(255, 223, 0, 0.3);
+            transition: background 0.3s ease, transform 0.2s ease;
         }
 
         a:hover {
-            background-color: #fffacd;
-            transform: scale(1.05);
+            background: #fffacd;
+            transform: scale(1.1);
         }
 
         /* Animazioni */
-        @keyframes fadeIn {
+        @keyframes scaleIn {
             from {
+                transform: scale(0.9);
                 opacity: 0;
             }
             to {
+                transform: scale(1);
                 opacity: 1;
             }
         }
 
-        @keyframes dropIn {
+        @keyframes fadeIn {
             from {
-                transform: translateY(-50px);
                 opacity: 0;
+                transform: translateY(10px);
             }
             to {
-                transform: translateY(0);
                 opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
 </head>
 <body>
-    <h1>🎄 Buon Natale! 🎄</h1>
-    <p>Inserisci la password per scaricare il tuo regalo speciale:</p>
-    <input type="password" id="password" placeholder="Password">
-    <button onclick="checkPassword()">Invia</button>
+    <div class="container">
+        <h1>🎄 Magico Natale! 🎄</h1>
+        <p>Inserisci la password per scoprire il tuo regalo:</p>
+        <div class="input-group">
+            <input type="password" id="password" placeholder="Password">
+        </div>
+        <button onclick="checkPassword()">Sblocca</button>
 
-    <div id="download-section">
-        <p>🎁 Password corretta! Scarica il tuo regalo qui:</p>
-        <a href="regalo.pdf" download>Scarica il Regalo</a>
+        <div id="download-section">
+            <p>🎁 Regalo sbloccato! Scaricalo subito:</p>
+            <a href="regalo.pdf" download>Scarica il Regalo</a>
+        </div>
     </div>
 
     <script>
@@ -133,7 +156,7 @@
             if (password === "Natale2024") { // Modifica la password desiderata qui
                 document.getElementById('download-section').style.display = "block";
             } else {
-                alert("Password errata. Riprova!");
+                alert("Oops! La password non è corretta. Riprova!");
             }
         }
     </script>
