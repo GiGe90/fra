@@ -7,23 +7,67 @@
     <title>Regalo di Natale</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Georgia", serif;
+            background: url('https://www.transparenttextures.com/patterns/diamond-upholstery.png'), #d50000;
+            color: #fff;
             text-align: center;
-            margin-top: 50px;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            margin-bottom: 20px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #006400;
+            color: #fff;
+            font-size: 1.2em;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #228B22;
         }
         #download-section {
             display: none;
+            margin-top: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #ffd700;
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        a:hover {
+            background-color: #fffacd;
         }
     </style>
 </head>
 <body>
-    <h1>Inserisci la password per scaricare il tuo regalo!</h1>
+    <h1>Buon Natale! 🎄</h1>
+    <p>Inserisci la password per scaricare il tuo regalo speciale:</p>
     <input type="password" id="password" placeholder="Password">
     <button onclick="checkPassword()">Invia</button>
 
     <div id="download-section">
         <p>Password corretta! Scarica il tuo regalo qui:</p>
-        <a href="regalo.pdf" download>Scarica il Regalo</a>
+        <a href="regalo.pdf" download>Scarica il Regalo 🎁</a>
     </div>
 
     <script src="script.js"></script>
